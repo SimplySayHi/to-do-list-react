@@ -1,0 +1,40 @@
+.btn {
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 0 none;
+    border-radius: 10px;
+    padding: 0 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    transition: all 0.15s linear;
+
+    &-light-blue {
+        background-color: $blue-light-1;
+        color: $blue-light-4;
+
+        &:focus,
+        &:hover {
+            background-color: $blue-light-2;
+        }
+    }
+    &-green {
+        background-color: $green-1;
+        color: #fff;
+
+        &:focus,
+        &:hover {
+            color: #E6E6E6;
+            background-color: #98C578;
+        }
+    }
+    &[disabled],
+    &:disabled {
+        color: #425277;
+        background-color: $blue-3;
+        cursor: default;
+    }
+}

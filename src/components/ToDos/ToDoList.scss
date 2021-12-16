@@ -1,0 +1,26 @@
+.todo-list {
+    &__inner {
+        margin-top: 40px;
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+
+        &-title {
+            color: $blue-light-4;
+        }
+        &-counter {
+            min-width: 20px;
+            height: 20px;
+            border-radius: 100px;
+            background-color: $blue-light-4;
+            color: $blue-4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-size: 12px;
+            line-height: 0;
+        }
+    }
+}

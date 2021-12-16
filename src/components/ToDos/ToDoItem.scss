@@ -1,0 +1,131 @@
+.todo-item {
+    background-color: $blue-1;
+    color: $blue-light-4;
+    padding: 19px 20px;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.15s linear;
+
+    &__inner {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        &-body {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            opacity: 0;
+
+            ~ label {
+                cursor: pointer;
+                position: relative;
+                padding-left: 25px;
+                padding-right: 10px;
+
+                &:before {
+                    cursor: pointer;
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    border: 1px solid $blue-light-4;
+                    border-radius: 4px;
+                    background-color: transparent;
+                }
+            }
+            &:focus,
+            &:hover {
+                ~ label {
+                    &:before {
+                        background-color: $blue-2;
+                    }
+                }
+            }
+            &:checked ~ label {
+                .todo-item__text {
+                    text-decoration: line-through;
+                    color: $blue-5;
+                }
+                &:before {
+                    background-color: $green-1;
+                    border-color: $green-1;
+                }
+                &:after {
+                    content: '\2714';
+                    position: absolute;
+                    left: 4px;
+                    font-size: 0.85em;
+                    color: $green-2;
+                }
+            }
+        }
+    }
+    &__delete {
+        transition: opacity 0.15s linear;
+        opacity: 0;
+        background-color: transparent;
+        border: 0 none;
+        cursor: pointer;
+        padding: 0;
+        margin-left: auto;
+        line-height: 0;
+    }
+    &__priority {
+        width: 10px;
+        height: 10px;
+        margin: 0 13px;
+        border-radius: 100px;
+        background-color: #425277;
+        flex-shrink: 0;
+
+        &.--on {
+            background-color: $red-1;
+        }
+    }
+    @media (min-width: 992px) {
+        cursor: default;
+
+        &:hover {
+            box-shadow: 0 8px 18px 0 rgba(0,0,0,0.16);
+
+            .todo-item__delete {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.todo-edit-modal {
+    padding-bottom: 60px;
+
+    &__btn-delete {
+        width: 40px;
+        min-height: 40px;
+        padding: 0;
+        background-color: $blue-3;
+    }
+}
+@media (min-width: 992px) {
+    .todo-edit-modal {
+        display: none !important;
+
+        + .modal__backdrop {
+            display: none !important;
+        }
+    }
+}

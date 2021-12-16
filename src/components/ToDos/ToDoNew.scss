@@ -1,0 +1,135 @@
+.todo-new {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+        &-title {
+            color: $blue-light-4;
+        }
+        &-close {
+            cursor: pointer;
+            color: $blue-light-4;
+            font-size: 20px;
+        }
+    }
+    &__modal-button {
+        width: 100%;
+        border-radius: 12px;
+        min-height: 60px;
+        font-size: 16px;
+        color: $blue-light-4;
+        background-color: $blue-1;
+        text-transform: none;
+        font-weight: 500;
+
+        &-sign {
+            margin-left: 10px;
+        }
+    }
+    &__form-wrapper {
+        display: none;
+
+        + .todo-new__modal_backdrop {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(#020713, 0.9);
+        }
+
+        &.show {
+            display: block;
+        }
+    }
+    &__form {
+        display: flex;
+        background-color: $blue-1;
+        color: $blue-light-4;
+        padding: 10px 10px 10px 20px;
+        border-radius: 12px;
+        margin-top: 10px;
+
+        &-group {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .form-field {
+        width: 100%;
+        background-color: transparent;
+        border: 0 none;
+        color: $blue-light-4;
+        outline: none !important;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    &__btn-submit {
+        margin-left: 15px;
+    }
+}
+@media (max-width: 991px) {
+    .todo-new {
+        &__form {
+            flex-direction: column;
+
+            &-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: calc(100% - 70px);
+                margin: 35px;
+                border-radius: 12px;
+                background-color: $blue-1;
+                z-index: 15;
+
+                &.show {
+                    + .todo-new__modal_backdrop {
+                        display: block;
+                    }
+                }
+            }
+            &-group--right {
+                justify-content: space-between;
+            }
+        }
+        &__header,
+        &__form {
+            padding: 20px 25px;
+        }
+        &__header {
+            border-bottom: 1px solid #1F2942;
+            line-height: 1;
+            align-items: center;
+        }
+        .form-field {
+            margin-bottom: 65px;
+            font-size: 18px;
+        }
+    }
+}
+@media (min-width: 992px) {
+    .todo-new {
+        &__modal-button,
+        &__header-close {
+            display: none;
+        }
+        &__form-wrapper {
+            display: block;
+        }
+        &__form {
+            &-group {
+                width: 50%;
+
+                &--right {
+                    justify-content: flex-end;
+                }
+            }
+        }
+        &__btn-submit {
+            margin-left: 60px;
+        }
+    }
+}
