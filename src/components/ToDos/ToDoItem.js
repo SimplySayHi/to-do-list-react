@@ -6,6 +6,7 @@ import Button from '../UI/Button';
 import Modal from '../UI/Modal';
 import './ToDoItem.scss';
 import iconTrash from '../../assets/icon-trash.svg';
+import PropTypes from 'prop-types';
 
 const ToDoItem = props => {
     const [showEditModal, setShowEditModal] = useState(false);
@@ -15,7 +16,7 @@ const ToDoItem = props => {
 
     useEffect(() => {
         dispatch(todosActions.setCompleteness({ todoId, isCompleted}));
-    }, [isCompleted]);
+    }, [todoId, isCompleted]);
 
     const switchCompleted = event => {
         setIsCompleted(event.target.checked);
@@ -85,6 +86,16 @@ const ToDoItem = props => {
         }
     </div>
     )
+}
+
+ToDoItem.propTypes = {
+    // item: PropTypes.exact({
+    item: PropTypes.shape({
+        isCompleted: PropTypes.bool.isRequired,
+        id: PropTypes.string.isRequired,
+        hasPriority: PropTypes.bool.isRequired,
+        text: PropTypes.string.isRequired
+    }).isRequired
 }
 
 export default ToDoItem

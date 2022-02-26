@@ -1,6 +1,7 @@
 
 import ToDoItem from './ToDoItem';
 import './ToDoList.scss';
+import PropTypes from 'prop-types';
 
 const ToDoList = props => {
     return (
@@ -16,6 +17,11 @@ const ToDoList = props => {
             </div>
         </div>
     )
+}
+
+ToDoList.propTypes = {
+    title: PropTypes.string,
+    items: PropTypes.arrayOf( ToDoItem.propTypes.item ).isRequired
 }
 
 export default ToDoList
