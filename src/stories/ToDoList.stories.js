@@ -4,7 +4,8 @@ import { MockedState } from '../../.storybook/MockedState';
 
 export default {
     title: 'ToDo/ToDoList',
-    component: ToDoList
+    component: ToDoList,
+    // decorators: [(Story) => <div style={{ margin: '3em' }}>{Story()}</div>],
 }
 
 const Template = args => (
