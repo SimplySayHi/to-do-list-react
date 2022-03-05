@@ -18,7 +18,6 @@ const ToDoWrapper = (props) => {
                 <ToDoNew />
                 <ToDoList title="In progress" items={inProgressItems} />
                 <ToDoList title="Done" items={completedItems} />
-                {/* <portal-target name="todo-edit-modal" multiple></portal-target> */}
             </div>
         </section>
     )
