@@ -1,5 +1,6 @@
 
 import './SwitchInput.scss';
+import PropTypes from 'prop-types';
 
 const SwitchInput = props => {
     return (
@@ -16,6 +17,12 @@ const SwitchInput = props => {
             </label>
         </div>
     )
+}
+
+SwitchInput.propTypes = {
+    label: PropTypes.string,
+    checked: PropTypes.bool,
+    onChange: PropTypes.func
 }
 
 export default SwitchInput
